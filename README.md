@@ -7,7 +7,17 @@ README
 $ docker build -t koduki/dev-docker-gcp .
 ```
 
-### run
+### deploy to Google App Engine
+
+#### initialize
+
+```
+$ ./run.sh /bin/bash
+ root@:/# appcfg.py --noauth_local_webserver -A simple-bot-1283 -V v1 update /app/
+```
+
+appcfg.py --noauth_local_webserver -A simple-bot-1283 -V v1 update /app/
+
 
 ```bash
  $ ./run.sh /bin/bash

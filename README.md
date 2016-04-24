@@ -1,32 +1,60 @@
 README
 ==================
 
-### build
+This is a simple wrapper of Google App Engine SDK to distribute docker.
+
+Build
+------------------
 
 ```bash
 $ docker build -t koduki/dev-docker-gcp .
 ```
 
-### deploy to Google App Engine
+You can also pull from [DockerHub](https://hub.docker.com/r/koduki/dev-docker-gcp/)
 
-#### initialize
 
-```
-$ ./run.sh /bin/bash
- root@:/# appcfg.py --noauth_local_webserver -A simple-bot-1283 -V v1 update /app/
-```
-
-appcfg.py --noauth_local_webserver -A simple-bot-1283 -V v1 update /app/
-
+Run server on local
+-------------------------------
 
 ```bash
- $ ./run.sh /bin/bash
- root@..:/# goapp serve --host=0.0.0.0 /app
+$ ./serve.sh
 ```
 
-python -c "import urllib2; print urllib2.urlopen('https://accounts.google.com').read()"
-@26e0e7b4eec5:/# goapp deploy -application simple-bot-1283 /app/app.yaml
+Go to "http://{your_docker_ip}:8080" in your browser:
 
-appcfg.py --noauth_local_webserver -A simple-bot-1283 -V v1 update /app/
+e.g) localhost, http://192.168.99.100/
 
-./deploy.sh simple-bot-1283 v1
+
+Deploy to Google App Engine
+------------------------------
+
+### Initialize and deploy
+
+Run "appcfg.py" command on Docker.
+And get "verification code" from following link.
+
+```bash
+$ ./run.sh /bin/bash
+root@3d004aa982d3:/# appcfg.py --noauth_local_webserver -A simple-app-1234 -V v1 update /app/
+....
+Go to the following link in your browser:
+
+    https://accounts.google.com ... ccess_type=offline
+
+Enter verification code:
+```
+
+Input "verification code".
+
+```bash
+Enter verification code: xxxxxxxxxxx
+Authentication successful.
+```
+
+Finish.
+
+### Only deploy
+
+```bash
+./deploy.sh simple-app-1234 v1
+```

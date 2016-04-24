@@ -1,7 +1,7 @@
 README
 ==================
 
-This is a simple wrapper of Google App Engine SDK to distribute docker.
+This is a simple wrapper of [Google App Engine SDK](https://cloud.google.com/appengine/downloads) for to distribute docker.
 
 Build
 ------------------

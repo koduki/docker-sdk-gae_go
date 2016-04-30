@@ -16,4 +16,4 @@ ENV GOROOT /usr/local/go
 ENV GOPATH $HOME/go
 ENV PATH $GOROOT/bin:$GOPATH/bin:/opt/go_appengine/:$PATH
 
-RUN go get github.com/zenazn/goji
+RUN go get github.com/gin-gonic/gin

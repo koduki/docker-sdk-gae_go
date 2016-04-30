@@ -1,23 +1,30 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
-
-    "github.com/zenazn/goji"
-    "github.com/zenazn/goji/web"
+	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
-func index(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "index page")
+func indexGET(c *gin.Context) {
+    c.String(200, "Hello World!")
 }
 
-func hello(c web.C, w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello, %s!", c.URLParams["name"])
+func pingGET(c *gin.Context) {
+    c.String(200, "pong")
+}
+
+func echoGET(c *gin.Context) {
+    name := c.Param("name")
+    c.String(200, "Hello, %s", name)
 }
 
 func init() {
-    http.Handle("/", goji.DefaultMux)
-    goji.Get("/", index)
-    goji.Get("/hello/:name", hello)
+	r := gin.New()
+
+	r.GET("/", indexGET)
+	r.GET("/ping", pingGET)
+	r.GET("/echo/:name", echoGET)
+
+	// Handle all requests using net/http
+	http.Handle("/", r)
 }

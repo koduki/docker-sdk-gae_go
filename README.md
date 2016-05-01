@@ -7,10 +7,10 @@ Build
 ------------------
 
 ```bash
-$ docker build -t koduki/dev-docker-gcp .
+$ docker build -t koduki/sdk-gae_go .
 ```
 
-You can also pull from [DockerHub](https://hub.docker.com/r/koduki/dev-docker-gcp/)
+You can also pull from [DockerHub](https://hub.docker.com/r/koduki/sdk-gae_go/)
 
 
 Run server on local

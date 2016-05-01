@@ -34,7 +34,7 @@ Run "appcfg.py" command on Docker.
 And get "verification code" from following link.
 
 ```bash
-$ ./run.sh /bin/bash
+$ ./run.sh
 root@3d004aa982d3:/# appcfg.py --noauth_local_webserver -A simple-app-1234 -V v1 update /app/
 ....
 Go to the following link in your browser:
